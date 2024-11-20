@@ -114,4 +114,4 @@ public class Transaction implements Comparable<Transaction>, Serializable {
     public int compareTo(Transaction o) {
         return this.getDate().compareTo(o.getDate());
     }
-}
+} // end of class

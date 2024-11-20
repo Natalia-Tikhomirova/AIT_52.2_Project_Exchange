@@ -37,4 +37,5 @@ public enum CurrencyExchange
         return currency_codes + " - rate: " + current_exchange + " EUR";
     }
 
+
 } // end of class

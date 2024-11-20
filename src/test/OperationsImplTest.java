@@ -5,7 +5,6 @@ import model.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.CurrencyExchange;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,6 @@ class OperationsImplTest {
         transactions.add(new Transaction(4, "GPB", false, LocalDate.now().minusDays(3), 400, 1.2)); //покупка
 
         operations = new OperationsImpl(transactions);
-
     }
 
     @Test
@@ -38,17 +36,31 @@ class OperationsImplTest {
 
     @Test
     void removeTrans() {
+
+        // Проверка, что транзакция с номером 2 существует до удаления
+        Transaction transactionBeforeRemoval = operations.findTrans(2);
+        assertNotNull(transactionBeforeRemoval);
+
+        // Удаление транзакции с номером 2
         boolean res = operations.removeTrans(2);
-        assertTrue(res);
-        assertNull(operations.findTrans(2));
+        assertTrue(res, "Удаление транзакции с номером 2 должно быть успешным.");
+        assertNotNull(operations.findTrans(2), "Транзакция с номером 2 должна отсутствовать.");
+
+        // Проверка перенумерации
+        Transaction firstTransaction = operations.findTrans(1);
+        assertNotNull(firstTransaction, "Транзакция с номером 1 должна существовать.");
+        assertEquals(1, firstTransaction.getNumber());
+
+        // Удаление несуществующей транзакции
         boolean resNotFound = operations.removeTrans(111);
+        assertFalse(resNotFound);
     }
 
     @Test
     void findTrans() {
         Transaction found = operations.findTrans(3);
         assertNotNull(found);
-        assertEquals(3,found.getNumber());
+        assertEquals(3, found.getNumber());
         Transaction notFound = operations.findTrans(111);
     }
 
@@ -117,4 +129,5 @@ class OperationsImplTest {
         double invalidMargin = operations.calcMarge("INVALID");
         assertEquals(0, invalidMargin);// так как такой валюты нет, то и маржа будет 0
     }
-}
+
+} // end of class
