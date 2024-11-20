@@ -291,7 +291,10 @@ public class OperationsImpl implements Operations, Serializable {
 
     @Override
     public boolean removeTrans(int num) {
-        // Ищем транзакцию по номеру и удаляем
+
+        // Выводим транзакции до удаления
+        printAllTrans();
+        // Сортируем и удаляем указанную транзакцию
         transactions.sort(Comparator.comparing(Transaction::getNumber));
         boolean removed = transactions.removeIf(transaction -> transaction.getNumber() == num);
 
@@ -303,6 +306,7 @@ public class OperationsImpl implements Operations, Serializable {
             {
                 transaction.setNumber(newNumber++);
             }
+            printAllTrans(); // Выводим транзакции после перенумерации
         }
         return removed;
     }
@@ -315,6 +319,7 @@ public class OperationsImpl implements Operations, Serializable {
                 return transaction;
             }
         }
+        printAllTrans(); // чтобы видеть текущие транзакции
         return null; // Если не найдена
     }
 
@@ -421,6 +426,8 @@ public class OperationsImpl implements Operations, Serializable {
         if (transactions.isEmpty()) {
             System.out.println("The transaction list is empty.");
         } else {
+            // Сортируем транзакции по номеру
+            transactions.sort(Comparator.comparing(Transaction::getNumber));
             for (Transaction transaction : transactions) {
                 System.out.println(transaction);
             }
