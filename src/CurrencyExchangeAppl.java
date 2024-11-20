@@ -30,5 +30,4 @@ public class CurrencyExchangeAppl {
         saveTransactions(transaction);
 
     } // end of main
-
 } // end of class

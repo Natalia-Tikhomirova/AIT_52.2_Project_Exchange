@@ -10,7 +10,6 @@ public enum CurrencyExchange
     FJD("FJD", 0.4091);
 
 
-
     private String currency_codes;
     private double current_exchange;
 

@@ -129,5 +129,4 @@ class OperationsImplTest {
         double invalidMargin = operations.calcMarge("INVALID");
         assertEquals(0, invalidMargin);// так как такой валюты нет, то и маржа будет 0
     }
-
 } // end of class

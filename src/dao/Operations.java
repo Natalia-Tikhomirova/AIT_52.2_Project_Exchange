@@ -29,4 +29,4 @@ public interface Operations {
 
     void printNewListTrans(List <Transaction> newList); // выводит транзакции из переданного списка newList
 
-}  // end of class
+} // end of class

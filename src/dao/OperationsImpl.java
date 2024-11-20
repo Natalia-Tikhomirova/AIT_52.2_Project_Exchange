@@ -473,5 +473,4 @@ public class OperationsImpl implements Operations, Serializable {
         }
 
     } //saveTransactions
-
 } // end of class

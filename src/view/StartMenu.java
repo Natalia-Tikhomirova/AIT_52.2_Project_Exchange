@@ -45,4 +45,5 @@ public enum StartMenu
         System.out.println();
 
     }//end printMenu
+
 }//end enum
