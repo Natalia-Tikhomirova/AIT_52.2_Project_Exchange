@@ -18,11 +18,11 @@ This application allows users to exchange currencies and manage transactions. It
 ## How to Run the Application
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Natalia-Tikhomirova/currency-exchange.git
+   git clone https://github.com/Natalia-Tikhomirova/AIT_52.2_Project_Exchange.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd currency-exchange
+   cd AIT_52.2_Project_Exchange
    ```
 3. Compile the Java files:
    ```bash
